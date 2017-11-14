@@ -1,0 +1,14 @@
+Options -Indexes +FollowSymLinks
+RewriteEngine On
+
+# redirect "www" domain to https://example.com
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+# redirect http to https (at this point, domain is without "www")
+RewriteCond %{HTTPS} =off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+
+php_value upload_max_filesize 40M
+php_value post_max_size 42M
