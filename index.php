@@ -1,5 +1,8 @@
 <?php
 session_start();
+global  $token;
+$token = md5(time()."&HSGb@4asdhjds*&6");
+$_SESSION["token"]=$token;
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,12 +21,13 @@ session_start();
                 <input class="FileUploadInput" type="file" name="file" id="file"/>
                 <div class="progressBar" contenteditable="true"></div>
                 <input type="text" class="ClipboardCopy"/>
-                <div class="Alert">Copied</div>
+                <div class="Alert">URL Copied</div>
             </div>
             <div class="FilesBox">
                 <?php
-
+                
                 function file_ui($data) {
+                    global  $token;
                     extract($data);
                     ?>
                     <div class="FileBox " 
@@ -31,12 +35,15 @@ session_start();
                          data-file="<?php echo $savedName; ?>"
                          data-path='<?php echo "https://" . $_SERVER["SERVER_NAME"] . "/download.php?file=".urlencode($savedName)."&name=" . $name; ?>'
                          >
+                        <a href="/delete.php?file=<?php echo $savedName;?>&token=<?php echo $token;?>" class="close">
+                           &times;
+                        </a>
                         <img 
 
                             src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/File_alt_font_awesome.svg/512px-File_alt_font_awesome.svg.png"/><br/>
                         <div class="Title"><?php echo $name; ?></div>
                         <a href="/download.php?file=<?php echo $savedName; ?>&name=<?php echo $name; ?>">
-                            <button class="btn btn-primary">
+                            <button class="btn btn-primary Download">
                                 Download</button>
                         </a>
                     </div>
@@ -74,5 +81,13 @@ session_start();
 
         </div>
         <a class="PoweredBy" href="https://github.com/initedit-project/">Powered by Initedit</a>
+        <script>
+            <?php
+            if(isset($_SESSION["msg"])){
+                echo "showAlert('".$_SESSION["msg"]."')";
+                unset($_SESSION["msg"]);
+            }
+            ?>
+        </script>
     </body>
 </html>

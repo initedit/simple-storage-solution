@@ -12,23 +12,30 @@ function InitDragAndDrop() {
 
 
 function InitFileDownload() {
+    $(".close,.Download").click(function (e) {
+        e.stopPropagation();
+    })
     $(".FileBox").click(function (e) {
 
 //        e.preventDefault();
 //        e.stopPropagation();
         $(".ClipboardCopy").val($(this).attr("data-path"))
         $(".ClipboardCopy").get(0).select();
-
+        showAlert("URL Copied");
         document.execCommand("Copy");
-        $(".Alert").show();
-        setTimeout(function () {
-            $(".Alert").hide();
-        }, 2000);
+
     });
-    $(".PoweredBy").click(function(e){
+    $(".PoweredBy").click(function (e) {
 //        e.preventDefault();
         e.stopPropagation();
     });
+}
+
+function showAlert(msg) {
+    $(".Alert").html(msg).show();
+    setTimeout(function () {
+        $(".Alert").hide();
+    }, 2000);
 }
 
 function InitUpload() {
