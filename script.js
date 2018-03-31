@@ -72,7 +72,7 @@ function InitUpload() {
                 $(".progressBar").width(100 + "%");
                 $(".progressBar").html(data.path);
                 console.log(data, "TEST");
-                refreshPage();
+//                refreshPage();
             }
         });
 

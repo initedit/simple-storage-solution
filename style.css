@@ -34,7 +34,7 @@ body,html{
     position: relative;
 }
 .Background{
-    background-size: 8em;
+    background-size: 6em;
     background-repeat: no-repeat;
     background-position-x: center;
     background-position-y: bottom;
