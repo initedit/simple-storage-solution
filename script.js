@@ -72,10 +72,15 @@ function InitUpload() {
                 $(".progressBar").width(100 + "%");
                 $(".progressBar").html(data.path);
                 console.log(data, "TEST");
-
+                refreshPage();
             }
         });
 
 
     });
+}
+
+
+function refreshPage() {
+    window.location.href = window.location.href;
 }
