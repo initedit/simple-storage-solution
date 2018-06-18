@@ -1,0 +1,128 @@
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  box-sizing: border-box;
+  background-color: #FFF;
+  color: #111;
+  width: 100%;
+  height: 100%; }
+
+.app {
+  box-sizing: border-box;
+  min-height: 100vh; }
+.app .brand-name {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  padding: 5px 15px;
+  background-color: rgba(255, 125, 0, 0.8);
+  border-radius: 3px;
+  color: #FFF;
+  z-index: 3; }
+.app .brand-name a {
+  color: #FFF; }
+.app .brand-name a:hover {
+  text-decoration: none; }
+.app .file-upload-box {
+  height: 100vh;
+  cursor: pointer;
+  position: fixed;
+  width: 50%;
+  background-image: url(https://theultralinx.com/.image/c_limit%2Ccs_srgb%2Cq_80%2Cw_960/MTMxOTU2MjU4MDY3NjMwMDkw/pzrf5rojpg.webp);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+.app .file-upload-box .center-add {
+  text-align: center;
+  width: 150px;
+  margin: 0 auto;
+  position: relative;
+  top: 50vh;
+  height: 100px;
+  margin-top: -50px; }
+.app .file-upload-box .center-add .fa {
+  font-size: 3em;
+  border-radius: 500px;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  box-shadow: 0px 0px 6px 5px #AAA;
+  background-color: #FFF; }
+.app .overlay-upload {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: royalblue;
+  opacity: 0.8;
+  display: none;
+  z-index: 4; }
+.app .upload-input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0; }
+.app .padding-none {
+  padding: 0px; }
+.app .item .fa-download {
+  cursor: pointer; }
+.app .item .size {
+  opacity: 0; }
+.app .item .name {
+  cursor: pointer; }
+.app .item .fa-trash {
+  opacity: 0;
+  cursor: pointer; }
+.app .item:hover .size {
+  opacity: 1; }
+.app .item:hover .fa-trash {
+  opacity: 1; }
+.app .progress-bar {
+  position: relative;
+  width: 100%;
+  height: 25px;
+  background-color: #666;
+  border-radius: 3px; }
+.app .progress-bar .progress-active {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: inherit;
+  background-color: rgba(255, 125, 0, 0.8);
+  border-radius: inherit; }
+.app .input-dummy {
+  position: fixed;
+  left: -99999px; }
+.app .toast-message {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  padding: 15px;
+  background-color: rgba(255, 125, 0, 0.8);
+  box-shadow: 0px -3px 2px #DDD;
+  color: #111;
+  text-align: center;
+  z-index: 3;
+  font-weight: bold; }
+
+.display-none {
+  display: none; }
+
+/* Small Devices, Tablets */
+@media only screen and (max-width: 768px) {
+  .app .file-upload-box {
+    position: relative;
+    width: 100%; }
+  .app .item .fa-download {
+    opacity: 1; }
+  .app .toast-message {
+    width: 100%; } }
+
+/*# sourceMappingURL=styles.css.map */
