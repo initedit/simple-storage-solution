@@ -8,6 +8,8 @@
 
 Note : /upload directory should have write permission)
 
+Live code : [https://ssd.initedit.com](https://ssd.initedit.com)
+
 # Prerequisite :
 
 ubuntu: apt-get update; apt-get install apache2 php
