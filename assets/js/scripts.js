@@ -1,5 +1,14 @@
 "use strict";
-
+var config = {
+    api:null,
+    getApiPath:function(uri){
+        if(this.api==null){
+            var baseURI = $("head base").attr("href");
+            this.api = baseURI;
+        }
+        return this.api + uri;
+    }
+}
 $(document).ready(initApp);
 var timeSinceInterval = null;
 var dragCounter = 0;
@@ -99,7 +108,7 @@ function uploadStart(files){
     
     uploadAjaxCall = $.ajax({
         type: "POST",
-        url: "/uploads.php",
+        url: config.getApiPath("/uploads.php"),
         xhr: function () {
             var myXhr = $.ajaxSettings.xhr();
             if (myXhr.upload) {
@@ -141,7 +150,7 @@ function refreshRecentUploadList(){
 function updateRecentList(){
     $.ajax({
         type: "POST",
-        url: "/recentlist.php",
+        url: config.getApiPath("/recentlist.php"),
         dataType:"json",
         success: function (data) {
             updateRecentListUI(data);
