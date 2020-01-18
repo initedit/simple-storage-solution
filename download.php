@@ -1,9 +1,9 @@
 <?php
-
+include "config.php";
 ignore_user_abort(true);
 set_time_limit(0); // disable the time limit for this script
 
-$path = "upload/"; // change the path to fit your websites document structure
+$path = $config["upload_dir"]; // change the path to fit your websites document structure
 
 $dl_file = $_GET['file']; // simple file name validation
 $dl_file_name = $_GET['name']; // simple file name validation
