@@ -4,5 +4,5 @@ $config = [
     "upload_clamp"=>true,
     "recent_count"=>20,
     "prefix_seperator"=>"-",
-    "install_dir"=>"./"
+    "install_dir"=>"/"
 ];
