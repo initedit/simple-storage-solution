@@ -108,7 +108,7 @@ function uploadStart(files){
     
     uploadAjaxCall = $.ajax({
         type: "POST",
-        url: config.getApiPath("/uploads.php"),
+        url: config.getApiPath("uploads.php"),
         xhr: function () {
             var myXhr = $.ajaxSettings.xhr();
             if (myXhr.upload) {
@@ -150,7 +150,7 @@ function refreshRecentUploadList(){
 function updateRecentList(){
     $.ajax({
         type: "POST",
-        url: config.getApiPath("/recentlist.php"),
+        url: config.getApiPath("recentlist.php"),
         dataType:"json",
         success: function (data) {
             updateRecentListUI(data);
