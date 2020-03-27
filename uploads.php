@@ -29,7 +29,10 @@ if($USER_UPLOADED_FILE!=null){
     $FILE_NAME_PREFIX = null;
     $PREFIX_SEPERATER = $config["prefix_seperator"];
     $POSTFIX_SEPERATER = $config["postfix_seperator"];
-    while(file_exists($UPLOAD_DIR.$FILE_NAME_PREFIX.$PREFIX_SEPERATER.$USER_UPLOADED_FILE_NAME)){
+    if(file_exists($UPLOAD_DIR.$FILE_NAME_PREFIX.$USER_UPLOADED_FILE_NAME.$POSTFIX_SEPERATER)){
+        $FILE_NAME_PREFIX .= time().rand(0,100);
+    }
+    while(file_exists($UPLOAD_DIR.$FILE_NAME_PREFIX.$PREFIX_SEPERATER.$USER_UPLOADED_FILE_NAME.$POSTFIX_SEPERATER)){
         $FILE_NAME_PREFIX .= time().rand(0,100);
     }
 
