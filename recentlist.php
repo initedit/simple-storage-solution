@@ -9,7 +9,6 @@ usort($all_file_list,function($a,$b){
 foreach ($all_file_list as $filename) {
     $recent_files[] = basename($filename);
 }
-//$recent_files = scandir($config["upload_dir"], SCANDIR_SORT_DESCENDING);
 
 $list = [];
 
