@@ -30,7 +30,7 @@ for($i=0;count($list)<$config["recent_count"] && $i<count($recent_files);$i++){
             "time"=>$file_time,
             "time_full"=>date ("F d Y H:i:s.", $file_time)
         ],
-        "download"=>"http://".$_SERVER['SERVER_NAME']."/download.php?file=".$file."&name=".$file_name
+        "download"=>"//".$_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT']."/download.php?file=".$file."&name=".$file_name
     ];
 }
 $result = ["code"=>1,"message"=>"Got List"];
