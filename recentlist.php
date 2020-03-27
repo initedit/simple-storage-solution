@@ -20,6 +20,7 @@ for($i=0;count($list)<$config["recent_count"] && $i<count($recent_files);$i++){
     }
     $indexof = strpos($file,$config["prefix_seperator"]);
     $file_name = substr($file,$indexof+1);
+    $file_name = substr($file_name,0,-1*strlen($config["postfix_seperator"]));
     $file_time = filectime($config["upload_dir"].$file);
     $file_size = filesize($config["upload_dir"].$file);
     $list[] = [

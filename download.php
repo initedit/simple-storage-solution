@@ -16,6 +16,7 @@ if (file_exists($fullPath)) {
         //get filename
         $indexof = strpos($dl_file,$config["prefix_seperator"]);
         $file_name = substr($dl_file,$indexof+1);
+        $file_name = substr($file_name,0,-1*strlen($config["postfix_seperator"]));
         $dl_file_name = $file_name;
 
         switch ($ext) {
