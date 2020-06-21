@@ -59,7 +59,7 @@ pipeline
             steps
             {
                 sh '''
-                ab -n 10 -c 2 https://ssd.initedit.com
+                ab -n 10 -c 2 https://ssd.initedit.com/
                 echo "somke-test"
                 '''
             }
