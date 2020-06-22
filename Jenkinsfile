@@ -8,13 +8,13 @@ pipeline
     }
     stages
     {
-        stage('Git-checkout')
+        /*stage('Git-checkout')
         {
             steps
             {
                 git credentialsId: 'github', url: git_url , branch: git_branch
             }
-        }
+        }*/
         
         stage('Sonarqube-anaylysis')
         {
@@ -42,13 +42,14 @@ pipeline
             {
                 sh '''
                 cd /home/initedit2/web/ssd.initedit.com/public_html/
-                tar -czf uploads.tar.gz uploads
-                mv uploads.tar.gz ..
+                tar -cpf uploads.tar uploads
+                mv uploads.tar ..
                 rm -rf /home/initedit2/web/ssd.initedit.com/public_html/*
                 cp -a $WORKSPACE/* /home/initedit2/web/ssd.initedit.com/public_html/
 
-                mv  ../uploads.tar.gz .
-                tar -xzf uploads.tar.gz
+                mv  ../uploads.tar .
+                tar -xpf uploads.tar
+                rm -rf uploads.tar
                 chown -R initedit2:initedit2 *
                 '''
             }
@@ -59,7 +60,7 @@ pipeline
             steps
             {
                 sh '''
-                ab -n 10 -c 2 https://ssd.initedit.com/
+                ab -n 4 -c 2 https://ssd.initedit.com/
                 echo "somke-test"
                 '''
             }

@@ -22,6 +22,9 @@ for($i=0;count($list)<$config["recent_count"] && $i<count($recent_files);$i++){
     $file_name = substr($file_name,0,-1*strlen($config["postfix_seperator"]));
     $file_time = filectime($config["upload_dir"].$file);
     $file_size = filesize($config["upload_dir"].$file);
+
+    $download_file = $_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT']."/download.php?file=".$file;
+
     $list[] = [
         "path"=>$file,
         "name"=>$file_name,
@@ -30,7 +33,10 @@ for($i=0;count($list)<$config["recent_count"] && $i<count($recent_files);$i++){
             "time"=>$file_time,
             "time_full"=>date ("F d Y H:i:s.", $file_time)
         ],
-        "download"=>"//".$_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT']."/download.php?file=".$file
+        "download"=>"//".$_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT']."/download.php?file=".$file,
+        "curl"=>[
+            "web"=> "curl -o  \"$file_name\" \"https://".$download_file."\"",
+        ]
     ];
 }
 $result = ["code"=>1,"message"=>"Got List"];

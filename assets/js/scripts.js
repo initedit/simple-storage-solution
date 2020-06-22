@@ -195,6 +195,12 @@ function getItemUI(item){
         document.execCommand("Copy");
         showToastMessage("Copied URL");
     });
+    $template.find(".curl-copy").click(function(){
+        $("#input-dummy").val(item.curl.web);
+        $("#input-dummy").select();
+        document.execCommand("Copy");
+        showToastMessage("Copied CURL");
+    });
     return $template;
 }
 

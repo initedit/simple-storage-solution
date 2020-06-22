@@ -76,12 +76,17 @@ body {
   opacity: 0; }
 .app .item .name {
   cursor: pointer; }
+.app .item .fa-curl {
+  cursor: pointer;
+  opacity: 0; }
 .app .item .fa-trash {
   opacity: 0;
   cursor: pointer; }
 .app .item:hover .size {
   opacity: 1; }
 .app .item:hover .fa-trash {
+  opacity: 1; }
+.app .item:hover .fa-curl {
   opacity: 1; }
 .app .progress-bar {
   position: relative;

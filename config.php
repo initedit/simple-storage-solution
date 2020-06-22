@@ -5,5 +5,6 @@ $config = [
     "recent_count"=>20,
     "prefix_seperator"=>"-",
     "postfix_seperator"=>".enc",
-    "install_dir"=>"/"
+    "install_dir"=>"/",
+    "base_dir"=>__DIR__
 ];
