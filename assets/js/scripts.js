@@ -192,13 +192,13 @@ function getItemUI(item){
     $template.find(".name").click(function(){
         $("#input-dummy").val(item.download);
         $("#input-dummy").select();
-        document.execCommand("Copy");
+        document.execCommand("Copy",false,null);
         showToastMessage("Copied URL");
     });
     $template.find(".curl-copy").click(function(){
         $("#input-dummy").val(item.curl.web);
         $("#input-dummy").select();
-        document.execCommand("Copy");
+        document.execCommand("Copy",false,null);
         showToastMessage("Copied CURL");
     });
     return $template;
