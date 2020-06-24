@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-sm-6 padding-none">
                 <div class="file-upload-box">
-                    <input type="text" id="input-dummy" class="input-dummy">
+                    <input type="text" id="input-dummy" class="input-dummy" disabled="disabled" >
                     <div class="center-add">
                         <i class="fa fa-plus" id="upload-add-btn"></i>
                         <div class="upload-progress display-none" id="upload-progress">
