@@ -46,6 +46,8 @@ pipeline
                 mv uploads.tar ..
                 rm -rf /home/initedit2/web/ssd.initedit.com/public_html/*
                 cp -a $WORKSPACE/* /home/initedit2/web/ssd.initedit.com/public_html/
+                /usr/bin/cp $WORKSPACE/.htaccess /home/initedit2/web/ssd.initedit.com/public_html/
+
 
                 mv  ../uploads.tar .
                 tar -xpf uploads.tar
