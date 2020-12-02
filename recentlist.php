@@ -40,7 +40,7 @@ for($i=0;count($list)<$config["recent_count"] && $i<count($recent_files);$i++){
             "time"=>$file_time,
             "time_full"=>date ("F d Y H:i:s.", $file_time)
         ],
-        "download"=>$protocal.$_SERVER['SERVER_NAME'].$port."/download.php?file=".$file,
+        "download"=>$protocol.$_SERVER['SERVER_NAME'].$port."/download.php?file=".$file,
         "curl"=>[
             "web"=> "curl -o  \"$file_name\" \"".$protocol.$download_file."\"",
         ]
