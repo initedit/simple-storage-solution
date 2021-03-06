@@ -16,4 +16,4 @@ jobs:
         source: "*"
         target: "${{ secrets.DEPLOY_PATH }}"
         overwrite: true
-        rm: true
+        rm: false
