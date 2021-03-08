@@ -7,6 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
+    - name: remove .git
+      run: rm -rf .git
     - name: Deploy
       uses: appleboy/scp-action@master
       with:
