@@ -1,6 +1,16 @@
 
 # Simple Storage Solution - Initedit
 
+## ssd with docker
+
+```
+docker build -t ssd -f ssd.Dockerfile .
+
+docker run -d -p 80:80 -v /data:/var/www/html/uploads ssd
+
+```
+
+
 ## Installation :
 
 1. upload files to /public_html/
