@@ -22,8 +22,8 @@ if(isset($_POST['folder'])){
     $FODLER = getFolder($_POST['folder']);
     if(!file_exists($UPLOAD_DIR.$FODLER)){
         mkdir($UPLOAD_DIR.$FODLER, 0700);
-        $UPLOAD_DIR = $UPLOAD_DIR.$FODLER.'/';
     }
+    $UPLOAD_DIR = $UPLOAD_DIR.$FODLER.'/';
 }
 // Check if user uploaded or not
 $USER_UPLOADED_FILE = isset($_FILES["file"])?$_FILES["file"]:null;
