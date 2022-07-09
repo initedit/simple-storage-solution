@@ -10,11 +10,20 @@
  */
 
 include "config.php";
+include "util.php";
 $UPLOAD_DIR = $config["upload_dir"];
 
 // Make Upload Directary if it does not exists already
 if(!file_exists($UPLOAD_DIR)){
-    mkdir($UPLOAD_DIR,"775");
+    mkdir($UPLOAD_DIR,0700);
+    file_put_contents($UPLOAD_DIR.'.htaccess', 'Deny from all');
+}
+if(isset($_POST['folder'])){
+    $FODLER = getFolder($_POST['folder']);
+    if(!file_exists($UPLOAD_DIR.$FODLER)){
+        mkdir($UPLOAD_DIR.$FODLER, 0700);
+        $UPLOAD_DIR = $UPLOAD_DIR.$FODLER.'/';
+    }
 }
 // Check if user uploaded or not
 $USER_UPLOADED_FILE = isset($_FILES["file"])?$_FILES["file"]:null;
@@ -51,7 +60,7 @@ if($USER_UPLOADED_FILE!=null){
         if($config["upload_clamp"]){
             
             $recent_files = [];
-            $all_file_list = glob($config["upload_dir"]."*", GLOB_BRACE);
+            $all_file_list = getAllFiles($UPLOAD_DIR);
             usort($all_file_list,function($a,$b){
                 return filemtime($a) < filemtime($b);
             });

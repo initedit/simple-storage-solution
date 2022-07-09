@@ -1,8 +1,14 @@
 <?php
 include "config.php";
-
+include "util.php";
 $recent_files = [];
-$all_file_list = glob($config["upload_dir"]."*", GLOB_BRACE);
+$UPLOAD_DIR = $config["upload_dir"];
+$FODLER = "";
+if(isset($_POST['folder'])){
+    $FODLER = getFolder($_POST['folder']);
+    $UPLOAD_DIR = $UPLOAD_DIR.$FODLER.'/';
+}
+$all_file_list = getAllFiles($UPLOAD_DIR);;
 usort($all_file_list,function($a,$b){
     return filemtime($a) < filemtime($b);
 });
@@ -30,17 +36,17 @@ for($i=0;count($list)<$config["recent_count"] && $i<count($recent_files);$i++){
     if (in_array($_SERVER['SERVER_PORT'],["80","443"])==false){
         $port = ":".$_SERVER['SERVER_PORT'];
     }
-    $download_file = $_SERVER['SERVER_NAME'].$port."/download.php?file=".$file;
+    $download_file = $_SERVER['SERVER_NAME'].$port."/download.php?file=".$FODLER.'/'.$file;
     
     $list[] = [
-        "path"=>$file,
+        "path"=>$FODLER.'/'.$file,
         "name"=>$file_name,
         "size"=>$file_size,
         "date"=>[
             "time"=>$file_time,
             "time_full"=>date ("F d Y H:i:s.", $file_time)
         ],
-        "download"=>$protocol.$_SERVER['SERVER_NAME'].$port."/download.php?file=".$file,
+        "download"=>$protocol.$_SERVER['SERVER_NAME'].$port."/download.php?file=".$FODLER.'/'.$file,
         "curl"=>[
             "web"=> "curl -o  \"$file_name\" \"".$protocol.$download_file."\"",
         ]

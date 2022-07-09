@@ -105,6 +105,7 @@ function uploadStart(files){
 
     // add assoc key values, this will be posts values
     formData.append("file", files[0]);
+    formData.append('folder',window.location.pathname);
     
     uploadAjaxCall = $.ajax({
         type: "POST",
@@ -148,9 +149,12 @@ function refreshRecentUploadList(){
 }
 
 function updateRecentList(){
+    var formData = new FormData();
+    formData.append('folder', window.location.pathname);
     $.ajax({
         type: "POST",
         url: config.getApiPath("recentlist.php"),
+        data: formData,
         dataType:"json",
         success: function (data) {
             updateRecentListUI(data);
@@ -158,7 +162,10 @@ function updateRecentList(){
         error: function (error) {
             console.log("error",error)
         },
-        async: true
+        async: true,
+        processData: false,
+        cache: false,
+        contentType: false,
     });
     
 }
