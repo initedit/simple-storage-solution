@@ -1,6 +1,6 @@
 <div class="app">
     <div class="brand-name">
-        <a href="https://github.com/initedit/">SSD</a>  
+        <a href="https://github.com/initedit/simple-storage-solution">SSD</a>  
     </div>
     <div class="container-fluid">
         <div class="row">
